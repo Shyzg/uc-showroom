@@ -9,19 +9,13 @@ return new class extends Migration {
      * Run the migrations.
      */
     public function up(): void {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->string('address');
-            $table->char('phone', 12);
-            $table->timestamps();
-        });
+        Schema::rename('users', 'customers');
     }
 
     /**
      * Reverse the migrations.
      */
     public function down(): void {
-        Schema::dropIfExists('users');
+        Schema::rename('customers', 'users');
     }
 };
